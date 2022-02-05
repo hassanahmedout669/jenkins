@@ -4,9 +4,9 @@ pipeline {
 		stage('Build') {
 			steps {
 				echo "Build"
-				echo '$PATH'
-				echo 'Build Number - $env.BUILD_NUMBER'
-				echo '$env.BUILD_ID'
+				echo "$PATH"
+				echo "Build Number - $env.BUILD_NUMBER"
+				echo "$env.BUILD_ID"
 			}
 		}
 		stage('Test') {
