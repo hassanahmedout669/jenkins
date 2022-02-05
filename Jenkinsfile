@@ -9,7 +9,7 @@ pipeline {
 		}
 		stage('Test') {
 			steps {
-				eho "Test"
+				echo "Test"
 			}
 		}
 		stage('Integration Test') {
