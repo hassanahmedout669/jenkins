@@ -1,12 +1,19 @@
 pipeline {
-	agent {
-        docker { image 'node:14-alpine' }
-    	}
+	agent any
+	environment {
+		dockerHome = tool 'myDocker'
+		mavenHome = tool 'myMaven'
+		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
+	}
 	stages {
 		stage('Build') {
 			steps {
-				sh 'node -v'
+				sh 'mvn --version'
+				sh 'docker version'
 				echo "Build"
+				echo "Path - $PATH"
+				echo "Build Number - $env.BUILD_NUMBER"
+				echo "BUILD ID - $env.BUILD_ID"
 			}
 		}
 		stage('Test') {
@@ -20,7 +27,7 @@ pipeline {
 			}
 		}
 	}
-
+	
 	post {
 		always {
 			echo 'I will run in any condition.'
