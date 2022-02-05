@@ -5,7 +5,6 @@ pipeline {
 	stages {
 		stage('Build') {
 			steps {
-				sh 'docker -v'
 				sh 'node -v'
 				echo "Build"
 			}
