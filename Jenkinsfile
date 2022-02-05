@@ -1,10 +1,12 @@
 pipeline {
-	agent { docker { image 'node:14-alpine' } }
+	agent any
 	stages {
 		stage('Build') {
 			steps {
-				sh 'node -v'
 				echo "Build"
+				echo '$PATH'
+				echo 'Build Number - $env.BUILD_NUMBER'
+				echo '$env.BUILD_ID'
 			}
 		}
 		stage('Test') {
