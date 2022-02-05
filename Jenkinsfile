@@ -9,10 +9,10 @@ pipeline {
 		}
 		stage('Test') {
 			steps {
-				echo "Test"
+				eho "Test"
 			}
 		}
-		stage('Test') {
+		stage('Integration Test') {
 			steps {
 				echo "Integration Test"
 			}
